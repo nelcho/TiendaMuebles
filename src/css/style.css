@@ -1,0 +1,650 @@
+/*** --- Mejores Practicas --- ***/
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%; /* 1REM = 10px */
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+/* * {
+    margin: 0;
+    padding: 0;
+  } */
+  
+  html, body {
+    min-height: 100vh;
+  }
+
+body {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.6rem;
+    line-height: 2;
+}
+
+
+
+/*** -- GLOBALES -- ***/
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+}
+
+h1 {
+    font-size: 3.2rem;
+}
+@media (min-width: 768px) {
+    h1 {
+        font-size: 3.8rem;
+    }
+}
+
+h2 {
+    font-size: 2.4rem;
+}
+@media (min-width: 768px) {
+    h2 {
+        font-size: 3.2rem;
+    }
+}
+
+h3 {
+    font-size: 2rem;
+}
+@media (min-width: 768px) {
+    h3 {
+        font-size: 2.4rem;
+    }
+}
+
+/* Da una Configuración General a los Enlaces */
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+/* Configura el tamaño y Centra el Contenido en el Contenedor */
+.contenedor {
+    max-width: 120rem;
+    margin: 0 auto;
+}
+
+/* Configura las imágenes para ocupar el total del contenedor en el que se encuentren */
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* Hace que que los enlaces que tengan la clase se vean como botones con una animación de cambio de color */
+.btn {
+    background-color: #8CBC00;
+    /* Hace que un elemento tome todo el espacio disponible */
+    display: block;
+    color: #fff;
+    /* Hace que el texto se presente en mayúsculas */
+    text-transform: uppercase;
+    font-weight: 900;
+    padding: 1rem;
+    /* Crea una animación sobre el enlace para que el cambio de color se realice de una manera mas tenue */
+    transition: background-color .3s ease-out;
+    text-align: center;
+    border: none;
+    width: 100%;
+}
+@media (min-width: 768px) {
+    .btn {
+        width: auto;
+    }    
+}
+
+.btn:hover {
+    background-color: #769C02;
+    /* Cambia la forma del cursos al pasar sobre el boton */
+    cursor: pointer;
+}
+
+
+
+/*** -- Utilidades -- ***/
+
+.text-center {
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .max-width-30 {
+        max-width: 30rem;
+    }
+}
+
+
+
+/*** -- Header -- ***/
+
+/* Posicionan y dan Color al Titulo de la Pagina */
+.nombre-sitio {
+    /* margin-top: 5rem;
+    margin-bottom: 5rem; */
+    text-align: center;
+}
+.nombre-sitio span {
+    color: #037BC0;
+}
+
+
+
+/*** -- Nav -- ***/
+
+.contenedor-navegacion {
+    /* Se hace uso de esta clase asociada a un nav para mostrar la linea superior del nav */
+    border-top: 1px solid #E1E1E1;
+}
+
+.contenedor-navegacion a {
+    /* Crea una animación sobre los enlaces haciéndo que el escalamiento se vea mas tenue */
+    transition: transform .3s ease-out;
+}
+
+.contenedor-navegacion a:hover {
+    /* Cambia el tamaño de la escala del elemento donde 1 equivale a 100% */
+    transform: scale(1.3);
+}
+
+.nav-principal {
+    /* Da Padding de 20 Arriba y Abajo y de 0 a Derecha e Izquierda */
+    padding: 2rem 0;
+    /* Habilita Flex-Box y organiza por defecto los elementos hijos de izquierda a Derecha */
+    display:flex;
+    /* Cambia el orden por defecto del Flex-Box para que los elementos hijos se organicen en columna */
+    flex-direction: column;
+    /* Cuando el Flex-Box esta en columnas align-items permite organizar horizontalmente los elementos */
+    align-items: center;
+}
+@media (min-width: 768px) {
+    .nav-principal {
+        /* Cambia el sentido de columnas a filas para tamaños mayores a 768px */
+        flex-direction: row;
+        /* justify-content permite organizar los elementos hijos de manera horizontal cuando el Flex-Box esta configurado en row que es por defecto */
+        /* align-items organiza los elementos hijos de manera vertical cuando el Flex-Box esta configurado en row */
+        /* Si se cambia el Flex-Box a Column entonces align-items organizara horizontalmente y justify-content organizara verticalmente */
+        justify-content:space-between;
+        
+    }
+}
+
+
+
+/***** INDEX.HTML *****/
+
+
+/*** -- Hero -- ***/
+
+.hero {
+    /* La ubicación de la imagen URL es con respecto a la ubicación del style.css */
+    background-image: url(../assets/img/principal.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* Permite ubicar la Imagen totalmente centrada en el contenedor */
+    background-position: center center;
+    height: 35rem;
+}
+@media (min-width: 768px) {
+    .hero {
+        height: 55rem;
+    }
+}
+
+
+
+/*** -- Sección Categorías de Productos -- ***/
+
+.categorias {
+    /* margin-top: 5rem; */
+}
+
+.categoria {
+    margin-bottom: 2rem;
+}
+@media (min-width: 768px) {
+    .categoria {
+        margin-bottom: 0;
+    }
+}
+
+.categorias h2 {
+    /* margin-bottom: 5rem; */
+}
+
+.categoria a {
+    /* Pasa los enlaces de display in-line a display block para que permita centrar el texto del enlace */
+    display: block;
+    text-align: center;
+    padding: 2rem;
+    font-size: 2rem;
+}
+
+/* Aplica un Pseudoelemento que en la practica es un evento de mouse sobre los enlaces */
+.categoria a:hover {
+    /* Al pasar el mouse sobre el enlace hace que cambie el color del fondo */
+    background-color:#037BC0;
+    /* Al mismo tiempo cambia el color de la fuente */
+    color: #FFFFFF;
+    /* Redondean las esquinas inferiores del enlace al pasar el mouse */
+    border-bottom-right-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+}
+
+.categoria img {
+    /* Hace que las imágenes ocupen el espacio divisorio entre ellas y el elemento siguiente eliminando el vació entre ellas */
+    display: block;
+}
+
+.listado-categorias img {
+  width: 100%;
+}
+@media (min-width: 768px) {
+    .listado-categorias {
+        /* Habilita Grid y sus comandos*/
+        display:grid;
+        /* Crea 3 columnas de 1 fracción cada una de ellas */
+        grid-template-columns: repeat(3, 1fr);
+        /* Gap es la distancia o el ancho del canal que separa las columnas y las filas */
+        gap: 2rem;
+    }
+}
+
+
+
+/*** --- Sección Sobre Nosotros --- ***/
+
+.sobre-nosotros {
+    margin-top: 5rem;
+    /* Se crea un degradado con el 50% transparente y del 50% al 100% azul luego agregamos una imagen */
+    background-image: linear-gradient(to bottom, transparent 50%, #037BC0 50%, #037BC0 100%), url(../assets/img/nosotros.jpg);
+    /* Posiciona la imagen por la izquierda y desde la mitad */
+    background-position: center, top left;
+    background-repeat: no-repeat;
+    /* Se le da 100% de la parte transparente del degradado y 120rem para el tamaño de la imagen que se ingresa allí */
+    background-size: 100%, 60rem;
+}
+@media (min-width: 768px) {
+    .sobre-nosotros {
+        margin-top: 5rem;
+        /* Se crea un degradado con el 50% transparente y del 50% al 100% azul luego agregamos una imagen */
+        background-image: linear-gradient(to right, transparent 50%, #037BC0 50%, #037BC0 100%), url(../assets/img/nosotros.jpg);
+        /* Posiciona la imagen por la izquierda y desde la mitad */
+        background-position: left center;
+        padding: 4rem 0;
+        /* Se le da 100% de la parte transparente del degradado y 120rem para el tamaño de la imagen que se ingresa allí */
+        background-size: 100%, 120rem;
+    }
+}
+
+.sobre-nosotros-grid {
+    display: grid;
+    /* Se crea un nuevo div con clase "texto-nosotros" eso hace que las dos filas de una fracción se monten una sobre la otra creando la sensación de una sola fila */
+    grid-template-rows: repeat(2, 1fr);
+    /* Da un espacio de 8rem al texto desde la imagen hacia la derecha */
+}
+@media (min-width: 768px) {
+    .sobre-nosotros-grid {
+        /* Se crea un nuevo div con clase "texto-nosotros" eso hace que las dos columnas de una fracción se monten una sobre la otra creando la sensación de una sola columna */
+        grid-template-columns: repeat(2, 1fr);
+        /* Da un espacio de 8rem al texto desde la imagen hacia la derecha */
+        column-gap: 8rem;
+        /* Elimina el efecto de las filas en tamaños mayores a 768px */
+        grid-template-rows: unset; 
+    }
+}
+
+.texto-nosotros {
+    grid-row: 2 / 3;
+    color: #fff;
+    padding: 5rem;
+}
+@media (min-width: 768px) {
+    .texto-nosotros {
+        /* Basados en las lineas de la grilla le decimos a css que posiciones el texto de la linea 2 a la linea 3 */
+        grid-column: 2 / 3;
+    }
+}
+
+
+
+/*** --- Sección Nuestros Productos --- ***/
+
+.contenido-principal {
+    /* padding-top: 5rem; */
+}
+
+@media (min-width: 768px) {
+    .listado-productos {
+        /* padding-top: 5rem; */
+        display: grid;
+        /* Crea una grilla de 6 columnas con 1 fracción cada una */
+        grid-template-columns: repeat(6, 1fr);
+        gap: 2rem;
+    }
+    
+    /* :nth-child se utiliza para escoger con que columna se va a trabar colocando el numero de la columna entre paréntesis */
+    .producto:nth-child(1) {
+        /* En esta parte se indica de donde a donde llegara la columna trabajada en este caso de la linea 1 a la 7 */
+        grid-column-start: 1;
+        grid-column-end: 7;
+        /* Este código hace lo mismo pero en una sola linea */
+        /* grid-column: 1 / 7; */
+    
+        /* Se agrega un display grid para poder dividir el primer hijo en dos columnas */
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+    }
+    /* Se trabaja en la proporcion de la imagen del primer hijo con object-fit:cover para que quede responsive */
+    .producto:nth-child(1) img {
+        height: 43rem;
+        width: 100%;
+        /* Posiciona la imagen dentro del contenedor */
+        object-fit:cover;
+    }
+    .producto:nth-child(2) {
+        grid-column-start: 1;
+        grid-column-end: 4;
+    }
+    .producto:nth-child(2) img,
+    .producto:nth-child(3) img {
+        height: 30rem;
+        width: 100%;
+        object-fit:cover;
+    }
+    .producto:nth-child(3) {
+        grid-column-start: 4;
+        grid-column-end: 7;
+    }
+    .producto:nth-child(4) {
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+    .producto:nth-child(5) {
+        grid-column-start: 3;
+        grid-column-end: 5;
+    }
+    .producto:nth-child(6) {
+        grid-column-start: 5;
+        grid-column-end: 7;
+    }    
+}
+
+.producto {
+    background-color: #037BC0;
+    color: #fff;
+    margin-bottom: 2rem;
+}
+@media (min-width: 768px) {
+    .producto {
+        margin-bottom: 0;
+    }
+}
+
+/* Elimina el margin en el ultimo producto de la lista */
+.producto:last-of-type {
+    margin-bottom: 0;
+}
+
+.texto-producto {
+    text-align: center;
+    color: #fff;
+    /* Da un padding a todos los hijos */
+    padding: 2rem;
+}
+
+.texto-producto .precio {
+    font-size: 2.8rem;
+    /* Permite que el texto se muestre en negrilla al llamar el tamaño de fuente en 900 */
+    font-weight: 900;
+}
+
+.producto img {
+    /* Crea una animación sobre el escalamiento de la imagen haciéndolo mas tenue */
+    transition: transform .3s ease-out;
+}
+
+.producto img:hover {
+    /* Cambia el tamaño de la escala del elemento donde 1 equivale a 100% */
+    transform: scale(.97);
+}
+
+
+
+/*** --- Footer --- ***/
+
+.site-footer {
+    border-top: 1px solid #E1E1E1;
+    margin-top: 5rem;
+    /* padding-top: 5rem; */
+}
+@media (min-width: 768px) {
+    .grid-footer {
+        /* Crea tres columnas para organizar los enlaces del footer */
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2;
+        /* Permite centrar los elementos de forma horizontal */
+        justify-items: center;
+    }
+
+    .site-footer h3 {
+        /* text-align: left; */
+    }
+
+    .footer-menu a {
+        /* text-align: left; */
+    }
+}
+
+.site-footer h3 {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.footer-menu a {
+    /* Cambia el display de los enlaces para que se organicen verticalmente ya que estos por defecto traen display in-line */
+    display: block;
+    text-align: center;
+}
+
+.copyright {
+    margin-top: 5rem;
+    text-align: center;
+}
+
+
+
+
+
+/***** NOSOTROS.HTML *****/
+
+.contenido-nosotros {
+    /* Posiciona la imagen y el texto dentro del contenedor */
+    display:grid;
+    grid-template-columns: 1fr 2fr;
+    /* auto-fit genera automáticamente las columnas necesarias en tamaño grande pero si llega a 25rem repartirá el espacio en 1 fracción */
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    column-gap: 4rem;
+    /* margin-top: 5rem; */
+
+}
+
+.informacion-nosotros {
+    /* Se realiza un truco con flex-box para poder centrar el texto correctamente, hasta aquí queda igual */
+    display: flex;
+    flex-direction: column;
+    /* Con esta linea el texto se centra verticalmente dentro del espacio del contenedor */
+    justify-content:center;
+    padding: 2rem;
+}
+@media (min-width: 768px) {
+    .informacion-nosotros {
+        padding: 0;
+    }
+}
+
+.informacion-nosotros p {
+    padding: 1rem;
+}
+
+
+
+
+
+/***** BLOG.HTML *****/
+
+@media (min-width: 768px) {
+    .contenedor-blog {
+        /* Organiza el contenido en 2 columnas */
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        column-gap: 4rem;
+    }
+}
+
+.entrada {
+    /* Genera una linea de separación entre cada una de las entradas */
+    border-bottom: 2px solid #E1E1E1;
+    padding-bottom: 4rem;
+    /* margin-bottom: 2rem; */
+    
+}
+
+.entrada h2 {
+    text-align: center;
+}
+@media (min-width: 768px) {
+    .entrada h2 {
+        text-align: left;
+    }
+}
+
+.contenido-blog {
+    padding: 2rem;
+}
+
+.entrada:last-of-type {
+    /* Selecciona la ultima entrada o el ultimo elemento para aplicar ciertas reglas */
+    border: none;
+}
+
+@media (min-width: 768px) {
+    .entrada-meta {
+        /* Hace que cambie el display de las entradas de block a flex */
+        display: flex;
+        /* Hace que los dos elementos de la entrada se separen y quede uno a un costado del otro */
+        justify-content: space-between;
+    }
+}
+
+.entrada-meta p {
+    font-weight: 900;
+}
+
+.entrada-meta span {
+    color: #037BC0;
+}
+
+
+
+
+
+/***** ENTRADA.HTML *****/
+
+@media (min-width: 768px) {
+    .contenido-entrada-blog {
+        width: 60rem;
+        /* Permite centrar el contenido */
+        margin: 0 auto;
+    }
+}
+
+
+
+
+
+/***** GALERÍA.HTML *****/
+
+.galeria {
+    /* Elimina el punto de los elementos li */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+@media(min-width: 768px) {
+    .galeria {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Permite organizar las imágenes para que todas queden parejas */
+.galeria img {
+    height: 40rem;
+    width: 40rem;
+    object-fit: cover;
+}
+
+
+
+
+
+/***** CONTACTO.HTML *****/
+
+.formulario {
+    max-width: 60rem;
+    margin: 0 auto;
+}
+
+.formulario fieldset {
+    border: 1px solid black;
+    margin-bottom: 2rem;
+}
+
+.formulario legend {
+    background-color: #037BC0; /*#005485*/
+    /* Extiende el tamaño del titulo del legend */
+    width: 100%;
+    text-align: center;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 900;
+    padding: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.formulario label {
+    font-weight: 700;
+}
+
+.campo {
+    display: flex;
+    margin-bottom: 0.5rem;
+}
+
+.campo label {
+    /* Le da una separacion a los campos y los organiza verticalmente */
+    flex-basis: 16rem;
+}
+
+/* Forma de seleccionar el input a travez de su tipo */
+.campo input:not([type="radio"]),
+.campo textarea,
+.campo select {
+    /* Aplica factor de crecimiento de 1 pixel pero como solo hay un elemento crece ocupando el total del espacio */
+    flex: 1;
+    border: 1px solid #E1E1E1;
+    background: #E1E1E1;
+    padding: 0.5rem;
+}
+
+.campo textarea {
+    resize: none;
+}
